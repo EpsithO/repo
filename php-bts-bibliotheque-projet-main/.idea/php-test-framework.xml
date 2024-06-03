@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpTestFrameworkVersionCache">
+    <tools_cache>
+      <tool tool_name="PHPUnit">
+        <cache>
+          <versions>
+            <info id="LocalC:\Users\artur\Documents\cours\php-bts-bibliotheque-projet\vendor\autoload.php" version="10.4.2" />
+            <info id="LocalC:\Users\mednisa\Documents\projets\php-projet-bibliotheque\vendor\autoload.php" version="10.4.1" />
+          </versions>
+        </cache>
+      </tool>
+    </tools_cache>
+  </component>
+</project>

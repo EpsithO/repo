@@ -1,0 +1,17 @@
+@startuml
+
+:Bibliothécaire:
+(Créer un adhérent) as ca
+(Créer un livre) as cl
+(Créer un magazine) as cm
+(Lister les nouveaux médias) as list
+(Rendre disponible un média) as rd
+(Emprunter un média) as em
+
+:Bibliothécaire: --> (ca)
+:Bibliothécaire: --> (cl)
+:Bibliothécaire: --> (cm)
+:Bibliothécaire: --> (list)
+:Bibliothécaire: --> (rd)
+:Bibliothécaire: --> (em)
+@enduml

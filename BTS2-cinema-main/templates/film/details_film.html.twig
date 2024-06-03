@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details film{% endblock %}
+
+{% block body %}
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .card p {
+            font-size: 1.2em;
+        }
+        .card .seance {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .card .seance p {
+            margin: 5px 0;
+        }
+        .btn {
+            margin-top: 10px;
+        }
+    </style>
+
+    {% for detailsFilm in film %}
+        <div class="card text-center">
+            <h1>{{ detailsFilm.titre }}</h1>
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                </svg>
+                : {{ detailsFilm.duree }}
+            </p>
+
+            <h2>Prochaine séance(s)</h2>
+            {% for seance in detailsFilm.seances %}
+                <div class="seance mt-4">
+                    <p><b>Le</b> {{ seance.dateProjection }}</p>
+                    <p><b>Tarif</b> : {{ seance.tarifNormal }} €</p>
+
+                    {% if connecter == true %}
+                        <div class="form">
+                            <div class="text-center">
+                                <a href="{{ path('app_reservation', {'idSeance' : seance.id }) }}">
+                                    <button type="submit" class="btn btn-primary">Faire une réservation ?</button>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+{% endblock %}

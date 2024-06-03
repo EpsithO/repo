@@ -1,0 +1,42 @@
+@startuml
+
+class Salle {
+- id : int
+- nom : string
+- nbPlace : int
+}
+
+class Séance {
+- id : int
+- dateProjection : DateTime
+- tarifNormal : float
+- tarifréduit : float
+}
+
+class Film {
+- id : int
+- titre : string
+- duree : int
+}
+
+class User {
+- id : int
+- email : string
+- motDePasse : string
+- roles : string
+}
+
+class Réservation {
+- id : int
+- nbPlaceAReserver : int
+- DateRéservation : DateTime
+- montant : float
+}
+
+Séance"0..*" --> "1..1"Film :> Projette
+Séance"0..*" --> "1..1"Salle :> Se déroule
+
+Réservation"0..*" --> "1..1"User :> Est réalisée
+
+Séance"1..1" <-- "0..*"Réservation :< Concerne
+@enduml

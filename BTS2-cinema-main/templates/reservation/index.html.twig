@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+    </style>
+
+    {% if connecter == true and erreur == "" %}
+        <div class="form">
+            {{ form_start(form) }}
+
+            <h1 class="text-center">Réservation</h1>
+            <h4 class="text-center mt-5 mb-4">Réserver des places pour le {{ date }} </h4>
+            <h5 class="text-center mb-4">Tarif (pour une place) : {{ tarif }} €</h5>
+
+
+            <div class="d-flex flex-direction-row justify-content-center">
+                <div class="form-label" style="margin-right: 20px; margin-bottom: 20px;padding-top: 5px; align-items: center">
+                    {{ form_label(form.nbPlace) }}
+                </div>
+                <div class="" style="width: 70px">
+                    {{ form_widget(form.nbPlace) }}
+                </div>
+            </div>
+
+            <div class="text-danger" style="">
+                {{ form_errors(form) }}
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Réserver</button>
+            </div>
+
+
+            {{ form_end(form) }}
+        </div>
+    {% else %}
+        <h1 class="text-center">Erreur lors du chargement des données</h1>
+    {% endif %}
+
+
+{% endblock %}

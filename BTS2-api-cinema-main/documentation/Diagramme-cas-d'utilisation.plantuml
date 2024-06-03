@@ -1,0 +1,18 @@
+@startuml
+skinparam actorStyle awesome
+:Utilisateur connecté: as User
+"Utilisateur non connecté" as UserNo
+
+skinparam padding 10
+
+
+UserNo --> (Voir les films à l’affiche)
+UserNo --> (Lister les détails d’un film)
+UserNo -up-> (Se connecter)
+UserNo -up-> (Créer un compte utilisateur)
+
+User --> (Se déconnecter)
+User --> (Réserver des places pour une séance)
+User -up-> (Voir les films à l’affiche)
+User -up-> (Lister les détails d’un film)
+@enduml

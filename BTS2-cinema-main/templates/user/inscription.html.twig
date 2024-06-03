@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+    </style>
+
+
+
+    <h1 class="text-center my-4">Inscription</h1>
+
+    <div class="form d-flex justify-content-center">
+        {{ form_start(form) }}
+
+        <div class="my-3">
+            <div class="form-label">
+                {{ form_label(form.email) }}
+            </div>
+            {{ form_widget(form.email) }}
+        </div>
+
+        <div class="my-3">
+            <div class="form-label">
+                {{ form_label(form.password) }} *
+            </div>
+            {{ form_widget(form.password) }}
+        </div>
+
+        <div class="my-3">
+            <div class="form-label">
+                {{ form_label(form.confirmPassword) }} *
+            </div>
+            {{ form_widget(form.confirmPassword) }}
+        </div>
+
+
+        <div class="text-danger" style="">
+            {{ form_errors(form) }}
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
